@@ -1,117 +1,111 @@
-# Campus Web App
+# Angular + Spring Boot CRUD Application
 
-A full-stack web application built with **Angular** (frontend) and **Spring Boot** (backend).  
-This project is designed to manage campus-related features such as lecturer data, students, announcements, and AI chatbot integration.
-
----
-
-## 🚀 Tech Stack
-
-**Frontend:** Angular  
-**Backend:** Spring Boot  
-**Database:** MySQL  
-**API Testing:** Postman (optional)
+This project is a full-stack CRUD web application built with **Angular** (frontend) and **Spring Boot** (backend).  
+It demonstrates how to connect an Angular client with a Spring Boot REST API using MySQL as the database.
 
 ---
 
 ## 🧩 Project Structure
 
-root/
-├── backend/ # Spring Boot project
-│ ├── src/main/java
-│ ├── src/main/resources
-│ └── pom.xml
-│
-└── frontend/ # Angular project
-├── src/
-├── angular.json
-└── package.json
+Angular-10-Spring-Boot-CRUD-Full-Stack-App/
+├── angular-frontend/ # Frontend (Angular)
+└── springboot-backend/ # Backend (Spring Boot)
 
 yaml
 Copy code
 
 ---
 
-## ⚙️ Prerequisites
+## ⚙️ Backend Setup (Spring Boot)
 
-Make sure you have the following installed:
-
-- **Node.js** (v16 or higher)
-- **Angular CLI** (`npm install -g @angular/cli`)
-- **Java JDK 17+**
-- **Maven**
-- **MySQL Server**
-
----
-
-## 🗄️ Database Setup
-
-1. Create a new MySQL database:
-   ```sql
-   CREATE DATABASE campus_webapp;
-Update your application.properties (in Spring Boot) with:
+1. Open the project folder:
+   ```bash
+   cd springboot-backend
+Open src/main/resources/application.properties
+Update the following fields with your local MySQL credentials:
 
 properties
 Copy code
-spring.datasource.url=jdbc:mysql://localhost:3306/campus_webapp
-spring.datasource.username=root
-spring.datasource.password=yourpassword
+spring.datasource.url=jdbc:mysql://localhost:3306/YOUR_DATABASE_NAME
+spring.datasource.username=YOUR_DB_USERNAME
+spring.datasource.password=YOUR_DB_PASSWORD
 spring.jpa.hibernate.ddl-auto=update
-▶️ Running the Project
-1. Backend (Spring Boot)
-bash
-Copy code
-cd backend
-mvn spring-boot:run
-Backend will start on:
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+Run the backend using IntelliJ IDEA or command line:
 
-arduino
-Copy code
-http://localhost:8080
-2. Frontend (Angular)
 bash
 Copy code
-cd frontend
+./mvnw spring-boot:run
+The backend runs on: http://localhost:8080
+
+💻 Frontend Setup (Angular)
+Open a new terminal and go to the frontend directory:
+
+bash
+Copy code
+cd angular-frontend
+Install dependencies:
+
+bash
+Copy code
 npm install
+Run the Angular development server:
+
+bash
+Copy code
 ng serve
-Frontend will start on:
+The frontend runs on: http://localhost:4200
+
+Make sure the backend is running before using the frontend.
+
+🔐 Security Notice
+Do not commit your real database credentials.
+
+Before committing:
+
+Replace your username and password in application.properties with placeholders:
+
+properties
+Copy code
+spring.datasource.username=YOUR_DB_USERNAME
+spring.datasource.password=YOUR_DB_PASSWORD
+Then add the file to .gitignore so it won’t be pushed again:
+
+css
+Copy code
+/springboot-backend/src/main/resources/application.properties
+🚀 Running the Application
+Start the backend server:
+
+bash
+Copy code
+cd springboot-backend
+./mvnw spring-boot:run
+Start the frontend:
+
+bash
+Copy code
+cd angular-frontend
+ng serve
+Open the browser and navigate to:
 
 arduino
 Copy code
 http://localhost:4200
-🌐 Connecting Frontend and Backend
-In your Angular environment file (environment.ts), set your API URL:
+🧱 Tech Stack
+Frontend: Angular
 
-typescript
-Copy code
-export const environment = {
-  production: false,
-  apiUrl: 'http://localhost:8080/api'
-};
-🧪 API Testing (Optional)
-Use Postman to test backend APIs before connecting to Angular.
+Backend: Spring Boot
 
-Example:
+Database: MySQL
 
-bash
-Copy code
-GET http://localhost:8080/api/employees
-👥 Team Members
-Name	Role
-Member 1	Frontend Developer
-Member 2	Backend Developer
-Member 3	Database & API Integration
-Member 4	UI/UX & Documentation
+Build Tools: Maven, Node.js
 
 📄 License
-This project is for educational purposes only.
+This project is open source and available for educational purposes.
 
-💡 Notes
-Make sure both backend and frontend servers are running before testing.
-
-For production, build Angular with:
-
-bash
+yaml
 Copy code
-ng build --prod
-and deploy the generated dist/ folder inside Spring Boot’s static/ directory if needed.
+
+---
