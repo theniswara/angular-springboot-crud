@@ -122,6 +122,3 @@ http://localhost:4200
 
 This project is open source and available for educational purposes.
 
-```
-```
-
