@@ -18,7 +18,6 @@ Angular-10-Spring-Boot-CRUD-Full-Stack-App/
 1. Open the project folder:
    ```bash
    cd springboot-backend
-````
 
 2. Open `src/main/resources/application.properties` and update the following fields with your local MySQL credentials:
 
