@@ -1,4 +1,3 @@
-````markdown
 # Angular + Spring Boot CRUD Application
 
 This project is a full-stack CRUD web application built with **Angular** (frontend) and **Spring Boot** (backend).  
